@@ -35,6 +35,14 @@ const styles = StyleSheet.create({
 		minWidth: 120,
 		marginHorizontal: 12,
 	},
+	loadingContainer: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: COLORS.primary200,
+		padding: 16,
+		borderRadius: 8,
+	},
 });
 
 export default styles;

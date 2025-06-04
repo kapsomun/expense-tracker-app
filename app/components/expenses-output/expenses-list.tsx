@@ -2,17 +2,8 @@ import { FC } from 'react';
 import { FlatList } from 'react-native';
 
 import ExpensesItem from './expenses-item';
+import { ExpensesListProps } from '@/types';
 
-type Expense = {
-	id: string;
-	amount: number;
-	description: string;
-	date: Date;
-};
-
-interface ExpensesListProps {
-	expenses: Expense[];
-}
 
 const ExpensesList: FC<ExpensesListProps> = ({ expenses }) => {
 

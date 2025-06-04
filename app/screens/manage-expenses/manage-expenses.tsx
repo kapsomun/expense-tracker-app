@@ -12,12 +12,12 @@ import { TypeRootStackParamList } from '@/navigation/navigation.types';
 import useStore from '@/store/store';
 
 import styles from './manage-expense.styles';
+import { deleteExpenseWithSync } from '@/logic/useExpenseActions';
 
 const ManageExpenses: FC = () => {
 	const route = useRoute<RouteProp<TypeRootStackParamList>>();
 	const navigation = useNavigation();
 	const editedExpenseId = route.params?.expenseId;
-	const deleteExpense = useStore(state => state.deleteExpense);
 	const isEditing = !!editedExpenseId;
 
 	function getCurrentExpense() {
@@ -40,7 +40,7 @@ const ManageExpenses: FC = () => {
 		if (!editedExpenseId) {
 			return;
 		}
-		deleteExpense(editedExpenseId);
+		deleteExpenseWithSync(editedExpenseId);
 		navigation.goBack();
 	}
 

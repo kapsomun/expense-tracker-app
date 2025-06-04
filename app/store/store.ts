@@ -1,23 +1,19 @@
 import { create } from 'zustand';
 
 import expenses from './dummy-data';
+import { ExpenseType } from '@/types';
 
-export type ExpenseType = {
-	id: string;
-	description: string;
-	amount: number;
-	date: Date;
-};
-
-interface ExpenseState {
+interface State {
 	expenses: ExpenseType[];
+	setExpenses: (expenses: ExpenseType[]) => void;
 	addExpense: (expense: ExpenseType) => void;
 	deleteExpense: (id: string) => void;
 	updateExpense: (id: string, updatedExpense: Partial<ExpenseType>) => void;
 }
 
-const useStore = create<ExpenseState>(set => ({
+const useStore = create<State>(set => ({
 	expenses: expenses,
+	setExpenses: expenses => set({ expenses }),
 	addExpense: expense =>
 		set(state => ({
 			expenses: [...state.expenses, expense],

@@ -6,7 +6,8 @@ import { TypeRootStackParamList } from '@/navigation/navigation.types';
 import routes from '@/navigation/routes';
 
 import styles from './styles';
-import { ExpenseType } from '@/store/store';
+import { ExpenseType } from '@/types';
+
 
 const ExpensesItem: FC<ExpenseType> = ({ id, amount, date, description }) => {
 	const navigation = useNavigation<NavigationProp<TypeRootStackParamList>>();

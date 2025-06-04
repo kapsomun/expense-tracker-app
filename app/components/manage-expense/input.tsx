@@ -1,21 +1,9 @@
 import { FC } from 'react';
-import { Text, TextInput, TextInputProps, View } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
 import styles from './styles';
+import { InputProps } from '@/types';
 
-interface InputProps extends TextInputProps {
-	label: string;
-	onChangeText: (text: string) => void;
-	inputTextConfig: {
-		placeholder: string;
-		keyboardType?: TextInputProps['keyboardType'];
-		secureTextEntry?: boolean;
-		maxLength?: number;
-        multiline?: boolean;
-        numberOfLines?: number;
-        value?: any;
-	};
 
-}
 
 const Input: FC<InputProps> = ({ label, onChangeText, inputTextConfig }) => {
 	return (
